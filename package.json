@@ -2,7 +2,7 @@
 	"name": "masm-code",
 	"displayName": "masm-code",
 	"publisher": "kaixa",
-	"description": "Integrate Masm and DOSBox in VSCode",
+	"description": "Integrate Masm syntax highlight and call DOSBox in VSCode",
 	"version": "0.0.1",
 	"license": "MIT",
 	"engines": {
