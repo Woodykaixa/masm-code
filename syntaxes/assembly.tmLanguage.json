@@ -1,0 +1,83 @@
+{
+	"name": "assembly",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#storage"
+		},
+		{
+			"name": "comment.line.semicolon",
+			"match": ";.*$"
+		},
+		{
+			"name": "constant.numeric",
+			"match": "\\d([a-fA-F0-9])*H?"
+		},
+		{
+			"name": "string.quoted.single.assembly",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.assembly",
+					"match": "\\\\."
+				}
+			]
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.other.assembly.data-transfer",
+					"match": "\\b(MOV(SX|ZX)?|LEA|LES|PUSH|POP|XCHG|LDS|LAHF|SAHF|POPF|XLAT)\\b"
+				},
+				{
+					"name": "keyword.operator.assembly.arithmetic",
+					"match": "\\b(AA(A|D|S|M)|ADD|ADC|INC|SUB|SBB|I?MUL|CBW|CMP|CWD|I?DIV|DAA|DEC|NEG)\\b"
+				},
+				{
+					"name": "keyword.operator.assembly.logical",
+					"match": "\\b(AND|OR|NOT|XOR|TEST|SHL|SHR|SAL|SAR|ROL|RCL|ROR|RCR)\\b"
+				},
+				{
+					"name": "keyword.assembly.string",
+					"match": "\\b((MOV|CMP|SCA)S(B|W)?|LODS|STOS|REPN?(Z|E)?)\\b"
+				},
+				{
+					"name": "keyword.control.assembly",
+					"match": "\\b(JMP|JN?(C|E|Z|S|O|A|N|P|G|L)|JPE|JPO|JN?(A|B|G|L)E|LOOPN?(Z|E)?|CALL|I?RET|IN|OUT|INTO?|CL(C|D|I)|CMC|ESC|HLT|LOCK|NOP|WAIT|ST(C|D|I))\\b"
+				},
+				{
+					"name": "keyword.assembly.pseudo",
+					"match": "\\b(EQ|SEGMENT|ASSUME|CODE|MACRO|END|ENDM|ENDP|ENDS|EQU|EXTRN|GROUP|LABEL|MODROM|NAME|NOSEGFIX|ORG|PROC|INCLUDE|PUBLIC|PURGE|RECORD|SEGFIX)\\b"
+				},
+				{
+					"name": "entity.name.type.assembly.define",
+					"match": "\\bD(B|D|W|Q|T)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.assembly",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.assembly",
+					"match": "\\\\."
+				}
+			]
+		},
+		"storage": {
+			"name": "storage.type.assembly.register",
+			"match": "\\b((A|B|C|D)(H|L|X)|(C|D|S|E)S|DI|SI|BP|SP|IP)\\b"
+		}
+	},
+	"scopeName": "source.asm"
+}

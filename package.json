@@ -11,14 +11,15 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.runInBox",
+		"onLanguage:assembly"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.runInBox",
+				"title": "在DOSBox中运行"
 			}
 		],
 		"languages": [
@@ -29,7 +30,15 @@
 				],
 				"extensions": [
 					".asm"
-				]
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "assembly",
+				"scopeName": "source.asm",
+				"path": "./syntaxes/assembly.tmLanguage.json"
 			}
 		]
 	},
