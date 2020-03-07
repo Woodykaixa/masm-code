@@ -2,13 +2,14 @@
 	"name": "masm-code",
 	"displayName": "masm-code",
 	"publisher": "kaixa",
-	"description": "Integrate wasm and DOSBox in VSCode",
+	"description": "Integrate Masm and DOSBox in VSCode",
 	"version": "0.0.1",
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.42.0"
 	},
 	"categories": [
-		"Other"
+		"Extension Packs"
 	],
 	"activationEvents": [
 		"onCommand:extension.runInBox",
@@ -40,7 +41,17 @@
 				"scopeName": "source.asm",
 				"path": "./syntaxes/assembly.tmLanguage.json"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Masm-code",
+			"properties": {
+				"masm-code.DOSBox.path": {
+					"type": "string",
+					"default": null,
+					"description": "DOSBox的安装路径(包含DOSBox.exe)"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
