@@ -1,22 +1,30 @@
 import * as vscode from 'vscode';
+import { Config } from './DOSBoxConfig';
+import { Downloader } from './DOSBoxDownloader';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "masm-code" is now active!');
+	const masmChannel = vscode.window.createOutputChannel('Masm-code组件检查');
 	const DosBoxPath = vscode.workspace.getConfiguration('masm-code.DOSBox').get('path') as string;
-	console.log(context.globalStoragePath);
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
+	const DosBoxHeight = vscode.workspace.getConfiguration('masm-code.DOSBox').get('height') as number;
+	const DosBoxWidth = vscode.workspace.getConfiguration('masm-code.DOSBox').get('width') as number;
+	const fs = vscode.workspace.fs;
+	new Downloader(fs, DosBoxPath, masmChannel).downloadMissingFile();
+	vscode.workspace.workspaceFolders?.forEach(f => {
+		console.log(f);
+	});
+	masmChannel.appendLine('开始读取DOSBox设置。');
+	new Config(DosBoxWidth, DosBoxHeight).writeConfig(fs, vscode.Uri.parse('file:///' + DosBoxPath + '/dosbox.conf'));
+	masmChannel.appendLine('读取完成。');
 	let runInBox = vscode.commands.registerCommand('extension.runInBox', (param) => {
-		console.log(DosBoxPath);
 		if (DosBoxPath !== null) {
-			vscode.window.createTerminal('DOSBox', DosBoxPath);
+			let ps = vscode.window.createTerminal({
+				shellPath: 'powershell.exe',
+			});
+			ps.sendText('cd ' + DosBoxPath);
+			ps.sendText('.\\dosbox.exe -conf .\\dosbox.conf');
+			// ps.dispose();
+			
 		} else {
 			vscode.window.showErrorMessage('未设置DOSBox路径。');
 		}
