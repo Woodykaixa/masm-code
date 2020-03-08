@@ -3,7 +3,7 @@
 	"displayName": "masm-code",
 	"publisher": "kaixa",
 	"description": "Integrate Masm syntax highlight and call DOSBox in VSCode",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.42.0"
@@ -50,12 +50,12 @@
 					"default": null,
 					"description": "DOSBox的存放路径"
 				},
-				"masm-code.DOSBox.width": {
+				"masm-code.DOSBox.BoxWidth": {
 					"type": "integer",
 					"default": 1024,
 					"description": "DOSBox窗口的宽度"
 				},
-				"masm-code.DOSBox.height": {
+				"masm-code.DOSBox.BoxHeight": {
 					"type": "integer",
 					"default": 768,
 					"description": "DOSBox窗口的高度"
