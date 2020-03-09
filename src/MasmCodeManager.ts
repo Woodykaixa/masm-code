@@ -9,11 +9,12 @@ export class MasmCodeManager {
     private readonly _config: Config;
     private readonly _downloader: Downloader;
     private _terminal: code.Terminal | null;
-    constructor() {
+    constructor(content: code.ExtensionContext) {
         this._masmChannel = code.window.createOutputChannel('Masm-Code');
         this._fs = code.workspace.fs;
-        this._config = new Config(this._fs, 'masm-code.DOSBox');
-        this._downloader = new Downloader(this._fs, this._config.path, this._masmChannel);
+        const path = content.globalStoragePath.replace(/\\/g, '/');;
+        this._config = new Config(this._fs, 'masm-code.DOSBox', path);
+        this._downloader = new Downloader(this._fs, path, this._masmChannel);
         this._terminal = null;
     }
 

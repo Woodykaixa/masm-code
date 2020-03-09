@@ -20,7 +20,7 @@
 		"commands": [
 			{
 				"command": "extension.runInBox",
-				"title": "在DOSBox中运行"
+				"title": "启动DOSBox"
 			}
 		],
 		"languages": [
@@ -45,11 +45,6 @@
 		"configuration": {
 			"title": "Masm-code",
 			"properties": {
-				"masm-code.DOSBox.path": {
-					"type": "string",
-					"default": null,
-					"description": "DOSBox的存放路径"
-				},
 				"masm-code.DOSBox.BoxWidth": {
 					"type": "integer",
 					"default": 1024,

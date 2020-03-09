@@ -8,10 +8,10 @@ export class Config {
     private readonly _configUri: Uri;
     private readonly _fs: FileSystem;
 
-    constructor(fs: FileSystem, configTitle: string) {
+    constructor(fs: FileSystem, configTitle: string,storage:string) {
         this._width = workspace.getConfiguration(configTitle).get('BoxWidth');
         this._height = workspace.getConfiguration(configTitle).get('BoxHeight');
-        this._path = workspace.getConfiguration(configTitle).get('path');
+        this._path = storage;
         this._configUri = Uri.parse('file:///' + this._path + '/dosbox.conf');
         this._fs = fs;
     }
