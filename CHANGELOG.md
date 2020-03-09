@@ -1,9 +1,9 @@
 # Change Log
 
-All notable changes to the "masm-code" extension will be documented in this file.
+Masm-code 改动日志。[格式参考](http://keepachangelog.com/)
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [1.0.0] - 2020-03-09
 
-## [Unreleased]
-
-- Initial release
+#### 新增功能
++ Intel 8086汇编的语法高亮
++ 自动下载Masm和DOSBox。
