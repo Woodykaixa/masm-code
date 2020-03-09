@@ -8,33 +8,41 @@ export class MasmCodeManager {
     private readonly _fs: code.FileSystem;
     private readonly _config: Config;
     private readonly _downloader: Downloader;
+    private _terminal: code.Terminal | null;
     constructor() {
         this._masmChannel = code.window.createOutputChannel('Masm-Code');
         this._fs = code.workspace.fs;
         this._config = new Config(this._fs, 'masm-code.DOSBox');
         this._downloader = new Downloader(this._fs, this._config.path, this._masmChannel);
+        this._terminal = null;
     }
 
     activate() {
         this._downloader.downloadMissingFile();
-        this._config.writeConfig();
     }
 
     runInBox() {
-        const DosBoxPath = this._config.path;        
-		if (DosBoxPath !== null) {
-			let ps = code.window.createTerminal({
-				shellPath: 'powershell.exe',
-			});
-			ps.sendText('cd ' + DosBoxPath);
-			ps.sendText('.\\dosbox.exe -conf .\\dosbox.conf');
-			// ps.dispose();
-            
-		} else {
-			code.window.showErrorMessage('未设置DOSBox路径。');
-		}
+        const filename = code.window.activeTextEditor?.document.fileName;
+        const currentPath = filename?.substring(0, filename?.lastIndexOf('\\'));
+        const autoExec = `mount c ${currentPath}
+c:\\`;
+        this._config.writeConfig(autoExec);
+        const DosBoxPath = this._config.path;
+        if (DosBoxPath !== null) {
+            if (this._terminal === null) {
+                this._terminal = code.window.createTerminal({
+                    shellPath: 'powershell.exe',
+                    hideFromUser: true
+                });
+            }
+            this._terminal.sendText('cd ' + DosBoxPath);
+            this._terminal.sendText('.\\dosbox.exe -conf .\\dosbox.conf');
+            // ps.dispose();
+        } else {
+            code.window.showErrorMessage('未设置DOSBox路径。');
+        }
     }
-    
+
 
 
 }
