@@ -5,7 +5,9 @@
 ## 功能
 
 + Intel 8086汇编的语法高亮
-+ 自动下载Masm和DOSBox。无需手动配置。
++ Intel 8086汇编的code snippets(代码……小片段?)
++ 自动下载Masm和DOSBox。无需手动配置
++ 通过VSCode命令启动DOSBox，自动进入工作区文件夹，自动配置Masm环境变量
 
 ## 安装要求
 

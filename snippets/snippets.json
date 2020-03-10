@@ -1,0 +1,30 @@
+{
+    "Segment Define": {
+        "prefix": "SEG",
+        "body": [
+            "$1 SEGMENT $2",
+            "\t$0",
+            "$1 ENDS"
+        ],
+        "description": "定义一个段"
+    },
+    "Assume": {
+        "prefix": "ASSUME",
+        "body": [
+            "ASSUME: CS:${1:CODE}, DS:${2:DATA}, SS:${3:STACK}"
+        ]
+    },
+    "String": {
+        "prefix": "STR",
+        "body": [
+            "${1:STRING} db \"$2\"$0"
+        ],
+        "description": "定义一个字符串"
+    },
+    "MOV":{
+        "prefix":"MOV",
+        "body":[
+            "MOV $1, $2"
+        ]
+    }
+}

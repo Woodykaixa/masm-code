@@ -2,6 +2,14 @@
 
 Masm-code 改动日志。[格式参考](http://keepachangelog.com/)
 
+## [1.1.0] - 2000-03-
+
+### 新增功能
++ Intel 8086汇编的code snippet
+
+### 改动
++ 换了logo
+
 ## [1.0.4] - 2000-03-10
 
 ### 改动
