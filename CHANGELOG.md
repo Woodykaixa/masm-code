@@ -2,10 +2,11 @@
 
 Masm-code 改动日志。[格式参考](http://keepachangelog.com/)
 
-## [1.1.0] - 2000-03-
+## [1.1.0] - 2000-03-11
 
 ### 新增功能
-+ Intel 8086汇编的code snippet
++ Intel 8086汇编的code snippet（SEG,ASSUME,STR,MOV）
++ 语法高亮增加新的匹配模式（DUP、?、以及中文符号）
 
 ### 改动
 + 换了logo

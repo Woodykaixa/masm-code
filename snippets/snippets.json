@@ -17,7 +17,7 @@
     "String": {
         "prefix": "STR",
         "body": [
-            "${1:STRING} db \"$2\"$0"
+            "${1:STRING} DB \"$2\"$0"
         ],
         "description": "定义一个字符串"
     },
