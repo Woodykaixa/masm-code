@@ -28,6 +28,22 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		{
+			"name": "entity.name.function.assembly.macro",
+			"match": "\\bMACRO\\b"
+		},
+		{
+			"name": "entity.name.type.assembly.define",
+			"match": "\\bD(B|D|W|Q|T)|DUP\\b"
+		},
+		{
+			"name": "variable.other.assembly",
+			"match": "\\?"
+		},
+		{
+			"name": "invalid.illegal.assembly.chinese",
+			"match": "“|”|。|，|？|￥|！|·|、|《|》|；|‘|’|（|）|—|……|【|】"
 		}
 	],
 	"repository": {
@@ -55,11 +71,7 @@
 				},
 				{
 					"name": "keyword.assembly.pseudo",
-					"match": "\\b(EQ|SEGMENT|ASSUME|CODE|MACRO|END|ENDM|ENDP|ENDS|EQU|EXTRN|GROUP|LABEL|MODROM|NAME|NOSEGFIX|ORG|PROC|INCLUDE|PUBLIC|PURGE|RECORD|SEGFIX)\\b"
-				},
-				{
-					"name": "entity.name.type.assembly.define",
-					"match": "\\bD(B|D|W|Q|T)\\b"
+					"match": "\\b(EQ|SEGMENT|ASSUME|CODE|MACRO|END|ENDM|ENDP|ENDS|EQU|EXTRN|GROUP|LABEL|MODROM|NAME|NOSEGFIX|ORG|PROC|INC(LUDE)?|PUBLIC|PURGE|RECORD|SEGFIX)\\b"
 				}
 			]
 		},
