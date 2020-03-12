@@ -16,7 +16,7 @@
 		},
 		{
 			"name": "constant.numeric",
-			"match": "\\d([a-fA-F0-9])*H?"
+			"match": "\\b\\d([a-fA-F0-9])*H?\\b"
 		},
 		{
 			"name": "string.quoted.single.assembly",
