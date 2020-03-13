@@ -1,5 +1,5 @@
 {
-    "Segment Define": {
+    "Segment": {
         "prefix": "SEG",
         "body": [
             "$1 SEGMENT $2",
@@ -21,10 +21,54 @@
         ],
         "description": "定义一个字符串"
     },
-    "MOV":{
-        "prefix":"MOV",
-        "body":[
+    "Move": {
+        "prefix": "MOV",
+        "body": [
             "MOV $1, $2"
         ]
+    },
+    "Procedure": {
+        "prefix": "PROC",
+        "body": [
+            "$1 PROC $2",
+            "\t$0",
+            "\tRET",
+            "$1 ENDP"
+        ],
+        "description": "定义过程"
+    },
+    "Macro": {
+        "prefix": "MACRO",
+        "body": [
+            "$1 MACRO $2",
+            "\t$0",
+            "$1 ENDM"
+        ],
+        "description": "定义宏"
+    },
+    "Test and Jump": {
+        "prefix": "TESTJ",
+        "body": [
+            "TEST $1, $2",
+            "${3:JMP} $4"
+        ],
+        "description": "测试后转跳"
+    },
+    "Compare and Jump": {
+        "prefix": "CMPJ",
+        "body": [
+            "${1:CMP} $2, $3",
+            "${4:JMP} $5"
+        ],
+        "description": "比较后转跳"
+    },
+    "Loop": {
+        "prefix": "LOOP",
+        "body": [
+            "$1: ",
+            "\t$0",
+            "${2:LOOP} $1"
+        ],
+        "description": "循环语句"
     }
 }

@@ -35,11 +35,11 @@
 		},
 		{
 			"name": "entity.name.type.assembly.define",
-			"match": "\\bD(B|D|W|Q|T)|DUP\\b"
+			"match": "\\bD(B|D|W|Q|T)|DUP|BYTE|WORD|DWORD|QWORD|TBYTE\\b"
 		},
 		{
 			"name": "variable.other.assembly",
-			"match": "\\?"
+			"match": "\\?|\\$|\\%|\\&|\\<|\\>|\\!"
 		},
 		{
 			"name": "invalid.illegal.assembly.chinese",
@@ -50,15 +50,15 @@
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.other.assembly.data-transfer",
+					"name": "keyword.assembly.data-transfer",
 					"match": "\\b(MOV(SX|ZX)?|LEA|LES|PUSH|POP|XCHG|LDS|LAHF|SAHF|POPF|XLAT)\\b"
 				},
 				{
-					"name": "keyword.operator.assembly.arithmetic",
+					"name": "keyword.assembly.arithmetic",
 					"match": "\\b(AA(A|D|S|M)|ADD|ADC|INC|SUB|SBB|I?MUL|CBW|CMP|CWD|I?DIV|DAA|DEC|NEG)\\b"
 				},
 				{
-					"name": "keyword.operator.assembly.logical",
+					"name": "keyword.assembly.logical",
 					"match": "\\b(AND|OR|NOT|XOR|TEST|SHL|SHR|SAL|SAR|ROL|RCL|ROR|RCR)\\b"
 				},
 				{
@@ -71,7 +71,11 @@
 				},
 				{
 					"name": "keyword.assembly.pseudo",
-					"match": "\\b(EQ|SEGMENT|ASSUME|CODE|MACRO|END|ENDM|ENDP|ENDS|EQU|EXTRN|GROUP|LABEL|MODROM|NAME|NOSEGFIX|ORG|PROC|INC(LUDE)?|PUBLIC|PURGE|RECORD|SEGFIX)\\b"
+					"match": "\\b(EQ|SEGMENT|ASSUME|MACRO|END(M|P|S)?|EQU|EXTRN|GROUP|LABEL|TITLE|MODROM|NAME|NOSEGFIX|ORG|PROC|INC(LUDE)?|PUBLIC|PURGE|RECORD|SEGFIX|PARA|PAGE|STACK|AT|MEMORY|LOCAL)\\b"
+				},
+				{
+					"name":"keyword.assembly.operator",
+					"match":"\\b(TYPE|SIZE|LENGTH|PTR|HIGH|LOW|NEAR|FAR)\\b"
 				}
 			]
 		},
