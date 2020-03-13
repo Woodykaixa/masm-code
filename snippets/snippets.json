@@ -11,7 +11,7 @@
     "Assume": {
         "prefix": "ASSUME",
         "body": [
-            "ASSUME: CS:${1:CODE}, DS:${2:DATA}, SS:${3:STACK}"
+            "ASSUME CS:${1:CODE}, DS:${2:DATA}, SS:${3:STACK}"
         ]
     },
     "String": {
@@ -20,12 +20,6 @@
             "${1:STRING} DB \"$2\"$0"
         ],
         "description": "定义一个字符串"
-    },
-    "Move": {
-        "prefix": "MOV",
-        "body": [
-            "MOV $1, $2"
-        ]
     },
     "Procedure": {
         "prefix": "PROC",
@@ -70,5 +64,29 @@
             "${2:LOOP} $1"
         ],
         "description": "循环语句"
+    },
+    "ASM Start":{
+        "prefix":"starter",
+        "body":[
+            "${1:DATA} SEGMENT",
+            "\t$2",
+            "${1:DATA} ENDS",
+            "",
+            "${3:STACKS} SEGMENT",
+            "\t$4",
+            "${3:STACKS} ENDS",
+            "",
+            "${5:CODES} SEGMENT",
+            "\tASSUME CS:${5:CODES}, DS:${1:DATA}, SS:${3:STACKS}",
+            "${6:START}:",
+            "\tMOV AX, ${1:DATA}",
+            "\tMOV DS, AX",
+            "\t$0",
+            "\tMOV AH, 4CH",
+            "\tINT 21",
+            "${5:CODES} ENDS",
+            "END ${6:START}"
+        ],
+        "description":"汇编程序基本框架"
     }
 }
