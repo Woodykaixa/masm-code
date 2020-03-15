@@ -2,6 +2,11 @@
 
 Masm-code 改动日志。[格式参考](http://keepachangelog.com/)
 
+## [1.2.0] - 2020-03-15
+
+### 新增
++ 新的命令`在DOSBox中编译运行`。自动编译运行代码
+
 ## [1.1.3] - 2020-03-13
 
 ### 改动
@@ -21,7 +26,7 @@ Masm-code 改动日志。[格式参考](http://keepachangelog.com/)
 
 ## [1.1.0] - 2020-03-11
 
-### 新增功能
+### 新增
 + Intel 8086汇编的code snippet（SEG,ASSUME,STR,MOV）
 + 语法高亮增加新的匹配模式（DUP、?、以及中文符号）
 
@@ -48,6 +53,6 @@ Masm-code 改动日志。[格式参考](http://keepachangelog.com/)
 
 ## [1.0.0] - 2020-03-09
 
-### 新增功能
+### 新增
 + Intel 8086汇编的语法高亮
 + 自动下载Masm和DOSBox。

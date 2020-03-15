@@ -13,15 +13,20 @@
 		"Extension Packs"
 	],
 	"activationEvents": [
-		"onCommand:extension.runInBox",
+		"onCommand:extension.runDOSBox",
+		"onCommand:extension.compileInDOSBox",
 		"onLanguage:assembly"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.runInBox",
+				"command": "extension.runDOSBox",
 				"title": "启动DOSBox"
+			},
+			{
+				"command": "extension.compileInDOSBox",
+				"title": "在DOSBox中编译运行"
 			}
 		],
 		"languages": [

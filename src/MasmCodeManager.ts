@@ -22,28 +22,47 @@ export class MasmCodeManager {
         this._downloader.downloadMissingFile();
     }
 
-    runInBox() {
-        const filename = code.window.activeTextEditor?.document.fileName;
-        const currentPath = filename?.substring(0, filename?.lastIndexOf('\\'));
-        const autoExec = `mount c ${currentPath}
-c:\\`;
+    openDOSBox(autoExec: string) {
         this._config.writeConfig(autoExec);
         const DosBoxPath = this._config.path;
-        if (DosBoxPath !== null) {
-            if (this._terminal === null) {
-                this._terminal = code.window.createTerminal({
-                    shellPath: 'powershell.exe',
-                    hideFromUser: true
-                });
-            }
-            this._terminal.sendText('cd ' + DosBoxPath);
-            this._terminal.sendText('.\\dosbox.exe -conf .\\dosbox.conf');
-            // ps.dispose();
-        } else {
-            code.window.showErrorMessage('未设置DOSBox路径。');
+        if (this._terminal === null) {
+            this._terminal = code.window.createTerminal({
+                shellPath: 'powershell.exe',
+                hideFromUser: true
+            });
         }
+        this._terminal.sendText('cd ' + DosBoxPath);
+        this._terminal.sendText('.\\dosbox.exe -conf .\\dosbox.conf');
+
     }
 
+    runDOSBox() {
+        const filename = code.window.activeTextEditor?.document.fileName;
+        if (filename === undefined) {
+            code.window.showErrorMessage('请先打开.asm文件，然后执行命令');
+            return;
+        }
+        const currentPath = filename?.substring(0, filename.lastIndexOf('\\'));
+        const autoExec = `mount c ${currentPath}
+c:\\`;
+        this.openDOSBox(autoExec);
+    }
 
+    compileInDOSBox() {
+        const filename = code.window.activeTextEditor?.document.fileName;
+        if (filename === undefined) {
+            code.window.showErrorMessage('请先打开.asm文件，然后执行命令');
+            return;
+        }
+        const lastIndex = filename.lastIndexOf('\\');
+        const currentPath = filename.substring(0, lastIndex);
+        const file = filename.substring(lastIndex + 1);
+        const fileNoExt = file.substring(0, file.lastIndexOf('.'));
+        const autoExec = `mount c ${currentPath}
+c:\\
+ML ${file}
+${fileNoExt}.EXE`;
+        this.openDOSBox(autoExec);
+    }
 
 }
