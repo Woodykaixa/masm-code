@@ -36,7 +36,7 @@
         "body": [
             "$1 MACRO $2",
             "\t$0",
-            "$1 ENDM"
+            "ENDM"
         ],
         "description": "定义宏"
     },
@@ -83,7 +83,7 @@
             "\tMOV DS, AX",
             "\t$0",
             "\tMOV AH, 4CH",
-            "\tINT 21",
+            "\tINT 21H",
             "${5:CODES} ENDS",
             "END ${6:START}"
         ],

@@ -67,7 +67,7 @@
 				},
 				{
 					"name": "keyword.control.assembly",
-					"match": "\\b(JMP|JN?(C|E|Z|S|O|A|N|P|G|L)|JPE|JPO|JN?(A|B|G|L)E|LOOPN?(Z|E)?|CALL|I?RET|IN|OUT|INTO?|CL(C|D|I)|CMC|ESC|HLT|LOCK|NOP|WAIT|ST(C|D|I))\\b"
+					"match": "\\b(JMP|JN?(C|E|Z|S|O|A|N|P|G|L|B)|JPE|JPO|JN?(A|B|G|L)E|LOOPN?(Z|E)?|CALL|I?RET|IN|OUT|INTO?|CL(C|D|I)|CMC|ESC|HLT|LOCK|NOP|WAIT|ST(C|D|I))\\b"
 				},
 				{
 					"name": "keyword.assembly.pseudo",
