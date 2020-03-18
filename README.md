@@ -1,13 +1,15 @@
 # masm-code README
 
-这学期我们学校在上8086汇编课程，使用Masm for Windows写汇编程序。而Masm fow Windows这个软件，UI丑，部分功能还收费。于是我写了这个扩展。**PS:我写的有点急，可能有一点小bug。以及：Mocha我在学了，下次一定写测试。**
+## 开发背景
+这学期我们学校在上8086汇编课程，使用Masm for Windows写汇编程序。而Masm fow Windows这个软件，UI丑，部分功能还收费。于是我写了这个扩展。（用了的话，给评个分呗qwq）
 
 ## 功能
 
 + Intel 8086汇编的语法高亮
-+ Intel 8086汇编的code snippets(代码……小片段?)
++ Intel 8086汇编的代码片段
 + 自动下载Masm和DOSBox。无需手动配置
 + 通过VSCode命令启动DOSBox，自动进入工作区文件夹，自动配置Masm环境变量
++ 一条指令自动编译运行代码
 
 ## 安装要求
 
@@ -15,15 +17,15 @@
 
 ## 使用方式
 
-按下<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>。在上方弹出的输入框中输入`启动DOSBox`或`在DOSBox中编译运行`（选择第二个选项就不需要看后面的内容了），然后按<kbd>Enter</kbd>（其实也可以用鼠标点）。然后DOSBox就会启动，并且转到当前编辑器所打开的文件的路径，输入`ML 你得文件名`，按下回车即可生成EXE文件，然后输入生成的EXE文件名，按下回车即可运行。你也可以使用`MASM.EXE`和`LINK.EXE`分别编译链接。关于调试程序，本扩展自动下载了`DEBUG.EXE`用于调试，但是我自己也没调试过，所以就不写了。
+按下<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>。在上方弹出的输入框中输入`启动DOSBox`或`在DOSBox中编译运行`（选择第二个选项就不需要看后面的内容了），然后按<kbd>Enter</kbd>（其实也可以用鼠标点）。然后DOSBox就会启动，并且转到当前编辑器所打开的文件的路径，输入`ML 文件名`，按下回车即可生成EXE文件，然后输入生成的EXE文件名，按下回车即可运行。你也可以使用`MASM.EXE`和`LINK.EXE`分别编译链接。关于调试程序，本扩展自动下载了`DEBUG.EXE`用于调试，但是我自己也没调试过，所以就不写了。
 
 ## 设置
 
 目前可以在`settings.json`中设置DOSBox的窗口大小,默认为1024*768。你也可以自行修改为你觉得爽的大小。
 ```json
     {
-        "masm-code.DOSBox.BoxWidth":1024,
-        "masm-code.DOSBox.BoxHeight":768
+        "masm-code.DOSBox.BoxWidth": 1024,
+        "masm-code.DOSBox.BoxHeight": 768
     }
 ```
 
