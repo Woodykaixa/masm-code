@@ -16,7 +16,7 @@
 		},
 		{
 			"name": "constant.numeric",
-			"match": "\\b\\d([a-fA-F0-9])*H?\\b"
+			"match": "\\b(?i)\\d([a-fA-F0-9])*H?\\b"
 		},
 		{
 			"name": "string.quoted.single.assembly",
@@ -30,12 +30,21 @@
 			]
 		},
 		{
-			"name": "entity.name.function.assembly.macro",
-			"match": "\\bMACRO\\b"
+			"name":"entity.name.function.assembly.name",
+			"match":"^\\s*\\w*\\s*(?=\\b(?i)(MACRO|PROC|ENDP)\\b)"
+		},
+		{
+			"name":"variable.parameter.assembly",
+			"match":"(?i)(?<=\\sMACRO)\\s+\\w*"
+		},
+		{
+			"name":"support.function.directive.assembly",
+			"begin":"\\[",
+			"end":"\\]"
 		},
 		{
 			"name": "entity.name.type.assembly.define",
-			"match": "\\bD(B|D|W|Q|T)|DUP|BYTE|WORD|DWORD|QWORD|TBYTE\\b"
+			"match": "\\b(?i)D(B|D|W|Q|T)|DUP|BYTE|WORD|DWORD|QWORD|TBYTE\\b"
 		},
 		{
 			"name": "variable.other.assembly",
@@ -51,31 +60,31 @@
 			"patterns": [
 				{
 					"name": "keyword.assembly.data-transfer",
-					"match": "\\b(MOV(SX|ZX)?|LEA|LES|PUSH|POP|XCHG|LDS|LAHF|SAHF|POPF|XLAT)\\b"
+					"match": "\\b(?i)(MOV(SX|ZX)?|LEA|LES|PUSH|POP|XCHG|LDS|LAHF|SAHF|POPF|XLAT)\\b"
 				},
 				{
 					"name": "keyword.assembly.arithmetic",
-					"match": "\\b(AA(A|D|S|M)|ADD|ADC|INC|SUB|SBB|I?MUL|CBW|CMP|CWD|I?DIV|DAA|DEC|NEG)\\b"
+					"match": "\\b(?i)(AA(A|D|S|M)|ADD|ADC|INC|SUB|SBB|I?MUL|CBW|CMP|CWD|I?DIV|DAA|DEC|NEG)\\b"
 				},
 				{
 					"name": "keyword.assembly.logical",
-					"match": "\\b(AND|OR|NOT|XOR|TEST|SHL|SHR|SAL|SAR|ROL|RCL|ROR|RCR)\\b"
+					"match": "\\b(?i)(AND|OR|NOT|XOR|TEST|SHL|SHR|SAL|SAR|ROL|RCL|ROR|RCR)\\b"
 				},
 				{
 					"name": "keyword.assembly.string",
-					"match": "\\b((MOV|CMP|SCA)S(B|W)?|LODS|STOS|REPN?(Z|E)?)\\b"
+					"match": "\\b(?i)((MOV|CMP|SCA)S(B|W)?|LODS|STOS|REPN?(Z|E)?)\\b"
 				},
 				{
 					"name": "keyword.control.assembly",
-					"match": "\\b(JMP|JN?(C|E|Z|S|O|A|N|P|G|L|B)|JPE|JPO|JN?(A|B|G|L)E|LOOPN?(Z|E)?|CALL|I?RET|IN|OUT|INTO?|CL(C|D|I)|CMC|ESC|HLT|LOCK|NOP|WAIT|ST(C|D|I))\\b"
+					"match": "\\b(?i)(JMP|JN?(C|E|Z|S|O|A|N|P|G|L|B)|JPE|JPO|JN?(A|B|G|L)E|LOOPN?(Z|E)?|CALL|I?RET|IN|OUT|INTO?|CL(C|D|I)|CMC|ESC|HLT|LOCK|NOP|WAIT|ST(C|D|I))\\b"
 				},
 				{
 					"name": "keyword.assembly.pseudo",
-					"match": "\\b(EQ|SEGMENT|ASSUME|MACRO|END(M|P|S)?|EQU|EXTRN|GROUP|LABEL|TITLE|MODROM|NAME|NOSEGFIX|ORG|PROC|INC(LUDE)?|PUBLIC|PURGE|RECORD|SEGFIX|PARA|PAGE|STACK|AT|MEMORY|LOCAL)\\b"
+					"match": "\\b(?i)(EQ|SEGMENT|ASSUME|MACRO|END(M|P|S)?|EQU|EXTRN|GROUP|LABEL|TITLE|MODROM|NAME|NOSEGFIX|ORG|PROC|INC(LUDE)?|PUBLIC|PURGE|RECORD|SEGFIX|PARA|PAGE|STACK|AT|MEMORY|LOCAL)\\b"
 				},
 				{
-					"name":"keyword.assembly.operator",
-					"match":"\\b(TYPE|SIZE|LENGTH|PTR|HIGH|LOW|NEAR|FAR)\\b"
+					"name": "keyword.assembly.operator",
+					"match": "\\b(?i)(TYPE|SIZE|LENGTH|PTR|HIGH|LOW|NEAR|FAR)\\b"
 				}
 			]
 		},
@@ -92,7 +101,7 @@
 		},
 		"storage": {
 			"name": "storage.type.assembly.register",
-			"match": "\\b((A|B|C|D)(H|L|X)|(C|D|S|E)S|DI|SI|BP|SP|IP)\\b"
+			"match": "\\b(?i)((A|B|C|D)(H|L|X)|(C|D|S|E)S|DI|SI|BP|SP|IP)\\b"
 		}
 	},
 	"scopeName": "source.asm"
