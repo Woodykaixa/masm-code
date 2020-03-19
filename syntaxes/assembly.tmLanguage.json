@@ -34,6 +34,10 @@
 			"match":"^\\s*\\w*\\s*(?=\\b(?i)(MACRO|PROC|ENDP)\\b)"
 		},
 		{
+			"name":"entity.name.function.assembly.call",
+			"match":"(?i)\\s*(?<=CALL|INT)\\s+\\w*"
+		},
+		{
 			"name":"variable.parameter.assembly",
 			"match":"(?i)(?<=\\sMACRO)\\s+\\w*"
 		},
