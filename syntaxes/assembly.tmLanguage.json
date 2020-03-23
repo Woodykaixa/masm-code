@@ -35,7 +35,7 @@
 		},
 		{
 			"name":"entity.name.function.assembly.call",
-			"match":"(?i)\\s*(?<=CALL|INT)\\s+\\w*"
+			"match":"(?i)\\s*\\w(?<=CALL|INT)\\w\\s+\\w*"
 		},
 		{
 			"name":"variable.parameter.assembly",
