@@ -1,6 +1,10 @@
 # Change Log
 
-Masm-code 改动日志。[格式参考](http://keepachangelog.com/)
+Masm-code 改动日志。
+
+## [1.2.5] - 2020-04-04
+### 改动
++ 使用webpack打包。现在扩展的体积应该会小了一些。
 
 ## [1.2.4] - 2020-03-23
 ### 改动

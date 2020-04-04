@@ -1,6 +1,5 @@
 .vscode/**
 .vscode-test/**
-out/test/**
 src/**
 .gitignore
 vsc-extension-quickstart.md
@@ -9,3 +8,5 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 dosbox
+webpack.config.js
+node_modules

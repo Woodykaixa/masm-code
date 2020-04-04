@@ -1,4 +1,4 @@
-import { ExtensionContext, commands, workspace, Uri } from 'vscode';
+import { ExtensionContext, commands } from 'vscode';
 import { MasmCodeManager } from './MasmCodeManager';
 
 export function activate(context: ExtensionContext) {
