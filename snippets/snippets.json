@@ -89,4 +89,103 @@
         ],
         "description":"汇编程序基本框架"
     }
+    //CALCULATE
+	"ADD": {
+		"prefix": "ADD",
+		"body": [
+			"ADD\t${1:DST},\t${2:SRC}\n$0",
+		],
+		"description": "加法\nDST←DST+REC"
+	},
+	"ADC": {
+		"prefix": "ADC",
+		"body": [
+			"ADC\t${1:DST},\t${2:SRC}\n$0",
+		],
+		"description": "带进位加法\nDST←DST+REC+CF"
+	},
+	"INC": {
+		"prefix": "INC",
+		"body": [
+			"INC\t${1:DST}\n$0",
+		],
+		"description": "增量\nDST←DST+1"
+	},
+	"SUB": {
+		"prefix": "SUB",
+		"body": [
+			"SUB\t${1:DST},\t${2:SRC}\n$0",
+		],
+		"description": "减法\nDST←DST-SRC"
+	},
+	"SBB": {
+		"prefix": "SBB",
+		"body": [
+			"SBB\t${1:DST},\t${2:SRC}\n$0",
+		],
+		"description": "带借位减法\nDST←DST-SRC-CF"
+	},
+	"DEC": {
+		"prefix": "DEC",
+		"body": [
+			"DEC\t${1:DST}\n$0",
+		],
+		"description": "减量\nDST←DST-1"
+	},
+	"NEG": {
+		"prefix": "NEG",
+		"body": [
+			"NEG\t${1:REG}\n$0",
+		],
+		"description": "求补，即REG中的各位取反，然后+1。"
+	},
+	"CMP": {
+		"prefix": "CMP",
+		"body": [
+			"CMP\t${1:DST},\t${2:SRC}\n$0",
+		],
+		"description": "DST-REG结果不保存，但是状态保存在PSW中。"
+	},
+	"MUL": {
+		"prefix": "MUL",
+		"body": [
+			"MUL\t${1:SRC}\n$0",
+		],
+		"description": "无符号数乘法\n字节操作：(AX)←(AL)*(SRC)\n字操作:(DX,AX)←(AX)*(SRC)\n双字操作：(EDX,EAX)←(EAX)*(SRC)"
+	},
+	"IMUL1": {
+		"prefix": "IMUL1",
+		"body": [
+			"IMUL\t${1:SRC}\n$0",
+		],
+		"description": "有符号数乘法\n8BIT:AL*SRC→AX\n16BIT:AX*SRC→AX,DX"
+	},
+	"IMUL2": {
+		"prefix": "IMUL2",
+		"body": [
+			"IMUL\t${1:DST},\t${2:SRC}\n$0"
+		],
+		"description": "有符号数乘法\nDST←DST*SRC"
+	},
+	"IMUL3": {
+		"prefix": "IMUL3",
+		"body": [
+			"IMUL\t${1:DST},\t${2:SRC1},\t${3:SRC2}\n$0"
+		],
+		"description": "有符号数乘法\nDST←SRC1*SRC2"
+	},
+	"DIV": {
+		"prefix": "DIV",
+		"body": [
+			"DIV\t${1:SRC}\n$0",
+		],
+		"description": "无符号数除法\n8bit字节操作：(AH)←(AX)/(SRC)的余数\n(AL)←(AX)/(SRC)的商\n16bit字操作：(DX)←(DX,AX)/(SRC)的余数\n(AX)←(DX,AX)/(SRC)的商"
+	},
+	"IDIV": {
+		"prefix": "IDIV",
+		"body": [
+			"IDIV\t${1:SRC}\n$0",
+		],
+		"description": "有符号数除法\n8bit字节操作：(AH)←(AX)/(SRC)的余数\n(AL)←(AX)/(SRC)的商\n16bit字操作：(DX)←(DX,AX)/(SRC)的余数\n(AX)←(DX,AX)/(SRC)的商"
+	},
 }
