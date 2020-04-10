@@ -2,39 +2,39 @@
     "Segment": {
         "prefix": "SEG",
         "body": [
-            "$1 SEGMENT $2",
+            "${1:SEG-NAME} SEGMENT $2",
             "\t$0",
-            "$1 ENDS"
+            "${1:SEG-NAME} ENDS"
         ],
         "description": "定义一个段"
     },
     "Assume": {
         "prefix": "ASSUME",
         "body": [
-            "ASSUME CS:${1:CODE}, DS:${2:DATA}, SS:${3:STACK}"
+            "ASSUME CS:${1:CODE}, DS:${2:DATA}, ${3|SS:STACK,ES:DATA|}"
         ]
     },
     "String": {
         "prefix": "STR",
         "body": [
-            "${1:STRING} DB \"$2\"$0"
+            "${1:STRING} DB $0"
         ],
         "description": "定义一个字符串"
     },
     "Procedure": {
         "prefix": "PROC",
         "body": [
-            "$1 PROC $2",
+            "${1:PROC-NAME} PROC $2",
             "\t$0",
             "\tRET",
-            "$1 ENDP"
+            "${1:PROC-NAME} ENDP"
         ],
         "description": "定义过程"
     },
     "Macro": {
         "prefix": "MACRO",
         "body": [
-            "$1 MACRO $2",
+            "${1:MACRO-NAME} MACRO $2",
             "\t$0",
             "ENDM"
         ],
@@ -59,9 +59,9 @@
     "Loop": {
         "prefix": "LOOP",
         "body": [
-            "$1: ",
+            "${1:LABEL}: ",
             "\t$0",
-            "${2:LOOP} $1"
+            "LOOP ${1:LABEL}"
         ],
         "description": "循环语句"
     },

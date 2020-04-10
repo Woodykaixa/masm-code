@@ -76,7 +76,7 @@
 				},
 				{
 					"name": "keyword.assembly.string",
-					"match": "\\b(?i)((MOV|CMP|SCA)S(B|W)?|LODS|STOS|REPN?(Z|E)?)\\b"
+					"match": "\\b(?i)((MOV|CMP|SCA)S(B|W)?|(LODS|STOS)(B|W)?|REPN?(Z|E)?)\\b"
 				},
 				{
 					"name": "keyword.control.assembly",
