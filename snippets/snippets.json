@@ -88,8 +88,7 @@
             "END ${6:START}"
         ],
         "description":"汇编程序基本框架"
-    }
-    //CALCULATE
+    },
 	"ADD": {
 		"prefix": "ADD",
 		"body": [
