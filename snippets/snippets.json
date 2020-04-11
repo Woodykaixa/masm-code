@@ -143,7 +143,7 @@
 		"body": [
 			"CMP\t${1:DST},\t${2:SRC}\n$0",
 		],
-		"description": "DST-REG结果不保存，但是状态保存在PSW中。"
+		"description": "DST-REG结果不保存,但是状态保存在PSW中。"
 	},
 	"MUL": {
 		"prefix": "MUL",
