@@ -4,7 +4,7 @@
 	"publisher": "kaixa",
 	"description": "Integrate Masm syntax highlight and code snippets into VSCode and auto compile in DOSBox",
 	"icon": "icons/masm-code.png",
-	"version": "1.2.6",
+	"version": "1.2.7",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.42.0"
