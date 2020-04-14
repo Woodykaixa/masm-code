@@ -12,8 +12,14 @@ export function activate(context: ExtensionContext) {
 	let compileInDOSBox = commands.registerCommand('extension.compileInDOSBox', () => {
 		masmManager.compileInDOSBox();
 	});
+
+	let compileInDOSBoxTwoSteps = commands.registerCommand('extension.compileInDOSBoxTwoSteps', () => {
+		masmManager.compileInDOSBoxTwoSteps();
+	});
+
 	context.subscriptions.push(runInBox);
 	context.subscriptions.push(compileInDOSBox);
+	context.subscriptions.push(compileInDOSBoxTwoSteps);
 }
 
 export function deactivate() { }

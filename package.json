@@ -27,6 +27,10 @@
 			{
 				"command": "extension.compileInDOSBox",
 				"title": "在DOSBox中编译运行"
+			},
+			{
+				"command": "extension.compileInDOSBoxTwoSteps",
+				"title": "在DOSBox中编译运行(使用MASM和LINK)"
 			}
 		],
 		"languages": [
@@ -81,7 +85,7 @@
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.1",
-		"@types/node": "^12.11.7",
+		"@types/node": "^12.12.35",
 		"@types/request": "^2.48.4",
 		"@types/vscode": "^1.42.0",
 		"@typescript-eslint/eslint-plugin": "^2.18.0",

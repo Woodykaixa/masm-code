@@ -48,6 +48,7 @@ c:\\`;
         this.openDOSBox(autoExec);
     }
 
+    //使用ML.EXE编译链接
     compileInDOSBox() {
         const filename = code.window.activeTextEditor?.document.fileName;
         if (filename === undefined) {
@@ -65,4 +66,22 @@ ${fileNoExt}.EXE`;
         this.openDOSBox(autoExec);
     }
 
+    //使用MASM.EXE和LINK.EXE分步编译链接
+    compileInDOSBoxTwoSteps() {
+        const filename = code.window.activeTextEditor?.document.fileName;
+        if (filename === undefined) {
+            code.window.showErrorMessage('请先打开.asm文件，然后执行命令');
+            return;
+        }
+        const lastIndex = filename.lastIndexOf('\\');
+        const currentPath = filename.substring(0, lastIndex);
+        const file = filename.substring(lastIndex + 1);
+        const fileNoExt = file.substring(0, file.lastIndexOf('.'));
+        const autoExec = `mount c ${currentPath}
+c:\\
+MASM ${fileNoExt}.ASM ${fileNoExt}.OBJ;
+LINK ${fileNoExt}.OBJ; 
+${fileNoExt}.EXE`;
+        this.openDOSBox(autoExec);
+    }
 }
