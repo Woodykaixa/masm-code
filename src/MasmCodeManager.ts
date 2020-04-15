@@ -79,8 +79,8 @@ ${fileNoExt}.EXE`;
         const fileNoExt = file.substring(0, file.lastIndexOf('.'));
         const autoExec = `mount c ${currentPath}
 c:\\
-MASM ${fileNoExt}.ASM ${fileNoExt}.OBJ;
-LINK ${fileNoExt}.OBJ; 
+MASM ${fileNoExt}.ASM,,,,;
+LINK ${fileNoExt}.OBJ,,,,; 
 ${fileNoExt}.EXE`;
         this.openDOSBox(autoExec);
     }
