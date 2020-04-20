@@ -39,7 +39,7 @@
 		},
 		{
 			"name":"variable.parameter.assembly",
-			"match":"(?i)(?<=\\sMACRO)\\s+\\w*"
+			"match":"(?i)(?<=\\sMACRO)[^;]*"
 		},
 		{
 			"name":"support.function.directive.assembly",
