@@ -22,6 +22,13 @@ export class MasmCodeManager {
         this._downloader.downloadMissingFile();
     }
 
+    deactivate() {
+        this._masmChannel.dispose();
+        if (this._terminal !== null) {
+            this._terminal.dispose();
+        }
+    }
+
     openDOSBox(autoExec: string) {
         this._config.writeConfig(autoExec);
         const DosBoxPath = this._config.path;
@@ -32,7 +39,14 @@ export class MasmCodeManager {
             });
         }
         this._terminal.sendText('cd ' + DosBoxPath);
-        this._terminal.sendText('.\\dosbox.exe -conf .\\dosbox.conf');
+        let command = '.\\dosbox.exe -conf .\\dosbox.conf';
+        const noConsole: boolean = this._config.readExtensionConfig('NoConsole');
+        //似乎不起作用，只会读取启动时候的config
+        if (noConsole) {
+            command += ' -noconsole';
+        }
+        this._masmChannel.appendLine(command);
+        this._terminal.sendText(command);
 
     }
 

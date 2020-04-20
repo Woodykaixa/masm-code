@@ -1,8 +1,10 @@
 import { ExtensionContext, commands } from 'vscode';
 import { MasmCodeManager } from './MasmCodeManager';
 
+
+let masmManager: MasmCodeManager;
 export function activate(context: ExtensionContext) {
-	const masmManager = new MasmCodeManager(context);
+	masmManager = new MasmCodeManager(context);
 	masmManager.activate();
 
 	let runInBox = commands.registerCommand('extension.runDOSBox', (param) => {
@@ -22,4 +24,8 @@ export function activate(context: ExtensionContext) {
 	context.subscriptions.push(compileInDOSBoxTwoSteps);
 }
 
-export function deactivate() { }
+export function deactivate() {
+	if (masmManager) {
+		masmManager.deactivate();
+	}
+}

@@ -70,6 +70,11 @@
 					"type": "integer",
 					"default": 768,
 					"description": "DOSBox窗口的高度"
+				},
+				"masm-code.DOSBox.NoConsole":{
+					"type":"boolean",
+					"default":false,
+					"description": "启动DOSBox但是不显示DOSBox的控制台"
 				}
 			}
 		}
