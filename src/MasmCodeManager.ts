@@ -57,7 +57,7 @@ export class MasmCodeManager {
             return;
         }
         const currentPath = filename?.substring(0, filename.lastIndexOf('\\'));
-        const autoExec = `mount c ${currentPath}
+        const autoExec = `mount c "${currentPath}"
 c:\\`;
         this.openDOSBox(autoExec);
     }
@@ -73,7 +73,7 @@ c:\\`;
         const currentPath = filename.substring(0, lastIndex);
         const file = filename.substring(lastIndex + 1);
         const fileNoExt = file.substring(0, file.lastIndexOf('.'));
-        const autoExec = `mount c ${currentPath}
+        const autoExec = `mount c "${currentPath}"
 c:\\
 ML ${file}
 ${fileNoExt}.EXE`;
@@ -91,7 +91,7 @@ ${fileNoExt}.EXE`;
         const currentPath = filename.substring(0, lastIndex);
         const file = filename.substring(lastIndex + 1);
         const fileNoExt = file.substring(0, file.lastIndexOf('.'));
-        const autoExec = `mount c ${currentPath}
+        const autoExec = `mount c "${currentPath}"
 c:\\
 MASM ${fileNoExt}.ASM ${fileNoExt}.OBJ;
 LINK ${fileNoExt}.OBJ; 
