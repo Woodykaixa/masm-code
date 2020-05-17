@@ -64,7 +64,7 @@
 			"patterns": [
 				{
 					"name": "keyword.assembly.data-transfer",
-					"match": "\\b(?i)(MOV(SX|ZX)?|LEA|LES|PUSH|POP|XCHG|LDS|LAHF|SAHF|POPF|XLAT)\\b"
+					"match": "\\b(?i)(MOV(SX|ZX)?|LEA|LES|PUSH|POP|XCHG|LDS|LAHF|SAHF|POPF|XLAT(B?))\\b"
 				},
 				{
 					"name": "keyword.assembly.arithmetic",
